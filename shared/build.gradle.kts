@@ -4,19 +4,22 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.androidLibrary)
 }
 
 kotlin {
+    androidTarget()
+
     js {
         browser()
     }
-    
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser()
     }
-    
-    
+
+
     sourceSets {
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -34,5 +37,18 @@ kotlin {
         jsMain.dependencies {
             implementation(libs.wrappers.browser)
         }
+        androidMain.dependencies {
+            implementation(libs.androidx.activity.compose)
+            implementation(libs.compose.uiTooling)
+        }
+    }
+}
+
+android {
+    namespace = "com.ashelyakin.portfolio.shared"
+    compileSdk = 34
+
+    defaultConfig {
+        minSdk = 24
     }
 }
