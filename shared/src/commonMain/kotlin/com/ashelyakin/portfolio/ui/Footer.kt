@@ -1,4 +1,4 @@
-package com.ashelyakin.portfolio.ui.home
+package com.ashelyakin.portfolio.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,6 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 import androidx.compose.ui.tooling.preview.Preview
+import com.ashelyakin.portfolio.ui.home.ArrowDirection
+import com.ashelyakin.portfolio.ui.home.CircleArrowButton
 
 /** Одна ссылка на соцсеть в футере. */
 data class SocialLink(
@@ -36,7 +38,7 @@ private val defaultSocialLinks = listOf(
  * круглая кнопка "наверх" в правом углу.
  */
 @Composable
-fun SiteFooter(
+fun Footer(
     copyrightText: String = "© 2026 Your Name. All rights reserved.",
     socialLinks: List<SocialLink> = defaultSocialLinks,
     onSocialLinkClick: (SocialLink) -> Unit = {},
@@ -78,6 +80,6 @@ fun SiteFooter(
 
 @Preview
 @Composable
-private fun SiteFooterPreview() {
-    SiteFooter()
+private fun FooterPreview() {
+    Footer()
 }

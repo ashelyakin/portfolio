@@ -1,4 +1,4 @@
-package com.ashelyakin.portfolio.ui.home
+package com.ashelyakin.portfolio.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -19,9 +19,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 import androidx.compose.ui.tooling.preview.Preview
+import com.ashelyakin.portfolio.ui.home.OutlinePillButton
 
 /**
- * Навигационный хедер (п.2.1 "Навигация").
+ * Навигационный хедер (п.2.1/3.1 "Навигация") — используется как на главной,
+ * так и на страницах проектов.
  * Слева — логотип-монограмма, в центре/справа — пункт меню "Projects",
  * крайне справа — переключатель темы и кнопка "Let's talk".
  */
@@ -29,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 fun NavHeader(
     logoLetter: String = "AS",
     isProjectsActive: Boolean = false,
+    onLogoClick: () -> Unit = {},
     onProjectsClick: () -> Unit = {},
     onThemeToggleClick: () -> Unit = {},
     onLetsTalkClick: () -> Unit = {},
@@ -47,7 +50,8 @@ fun NavHeader(
             text = logoLetter,
             color = PortfolioColors.TextPrimary,
             fontSize = 22.sp,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.clickable(onClick = onLogoClick)
         )
 
         // Пункт меню Projects

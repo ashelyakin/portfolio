@@ -11,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 import androidx.compose.ui.tooling.preview.Preview
+import com.ashelyakin.portfolio.ui.Footer
+import com.ashelyakin.portfolio.ui.NavHeader
 
 /**
  * Главная страница (Home) портфолио — сборка всех секций по разделу 2 спецификации:
@@ -46,7 +48,7 @@ fun HomeScreen(
             onProjectClick = onProjectClick
         )
 
-        SiteFooter()
+        Footer()
     }
 }
 
