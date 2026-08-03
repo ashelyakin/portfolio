@@ -11,7 +11,7 @@ data class Project(
     val title: String,
     val category: String,
     val shortDescription: String,
-    val fullDescription: String,
+    val descriptionMdPath: String,
     val images: List<String>,
     val coverBackgroundColor: Color = PortfolioColors.ImagePlaceholder,
     val cover: String?,
@@ -23,7 +23,7 @@ val sampleProjects: List<Project> = listOf(
         title = "My Subaru",
         category = "Mobile Apps",
         shortDescription = "Данное приложение является помощником для владельцев автомобилей Subaru.",
-        fullDescription = "FitTrack — приложение для отслеживания тренировок и активности. " +
+        descriptionMdPath = "FitTrack — приложение для отслеживания тренировок и активности. " +
             "Поддерживает синхронизацию с Google Fit, локальное хранение истории через Room " +
             "и построено по паттерну MVVM с чётким разделением слоёв данных и UI.",
         images = listOf(
@@ -41,7 +41,7 @@ val sampleProjects: List<Project> = listOf(
         title = "Subaru Professional",
         category = "Mobile Apps",
         shortDescription = "Каталог рецептов с офлайн-доступом и умным поиском",
-        fullDescription = "Мобильное приложение Subaru Professional  для сотрудников дилерской сети SUBARU " +
+        descriptionMdPath = "Мобильное приложение Subaru Professional  для сотрудников дилерской сети SUBARU " +
                 "для работы с актуальными сервисными заказ-нарядами и работы с клиентами официальных сервисных центров SUBARU.",
         images = listOf(
             "files/subaru_pro/1.png",
@@ -56,7 +56,7 @@ val sampleProjects: List<Project> = listOf(
         title = "Cubic Vision",
         category = "Mobile Apps",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
             "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -66,7 +66,7 @@ val sampleProjects: List<Project> = listOf(
         title = "Cubic Metrica",
         category = "Mobile Apps",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
                 "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -76,7 +76,7 @@ val sampleProjects: List<Project> = listOf(
         title = "Cubic Metrica Control",
         category = "Mobile Apps",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
                 "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -86,7 +86,7 @@ val sampleProjects: List<Project> = listOf(
         title = "Cubic Auto Setup",
         category = "Mobile Apps",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
                 "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -96,7 +96,7 @@ val sampleProjects: List<Project> = listOf(
         title = "LED Controller",
         category = "Mobile Apps",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
                 "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -106,7 +106,7 @@ val sampleProjects: List<Project> = listOf(
         title = "Takee",
         category = "Mobile Apps",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
                 "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -116,7 +116,7 @@ val sampleProjects: List<Project> = listOf(
         title = "Room Booking",
         category = "Libraries",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
                 "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -126,7 +126,7 @@ val sampleProjects: List<Project> = listOf(
         title = "Lib ADB",
         category = "Libraries",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
                 "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -136,7 +136,7 @@ val sampleProjects: List<Project> = listOf(
         title = "Test Runner",
         category = "Desktop Apps",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
                 "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -146,7 +146,7 @@ val sampleProjects: List<Project> = listOf(
         title = "ScreenStreamer/RemoteController",
         category = "Desktop Apps",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
+        descriptionMdPath = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
                 "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
         images = emptyList(),
         cover = "",
@@ -156,19 +156,21 @@ val sampleProjects: List<Project> = listOf(
         title = "Cubic Metrica Meetup",
         category = "Meetups",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
-                "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
-        images = emptyList(),
-        cover = "",
+        descriptionMdPath = "files/cubic_metrica_meetup/description.md",
+        images = generateFilePaths(1..17, prefix = "files/cubic_metrica_meetup/", suffix = ".JPG"),
+        cover = "files/cubic_metrica_meetup/cover.jpg",
     ),
     Project(
         id = "testRunnerMeetup",
         title = "Test Runner Meetup",
         category = "Meetups",
         shortDescription = "Библиотека переиспользуемых Compose-компонентов",
-        fullDescription = "KomposeUI — открытая библиотека готовых Compose Multiplatform компонентов: " +
-                "кнопки, чипы, карточки и типографика, следующие единой дизайн-системе.",
-        images = emptyList(),
-        cover = "",
+        descriptionMdPath = "files/test_runner_meetup/description.md",
+        images = generateFilePaths(1..17, prefix = "files/test_runner_meetup/", suffix = ".JPG"),
+        cover = "files/test_runner_meetup/cover.jpg",
     ),
 )
+
+fun generateFilePaths(range: IntRange, prefix: String = "", suffix: String = ""): List<String> {
+    return range.map { "$prefix$it$suffix" }
+}

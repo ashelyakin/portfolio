@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Surface
@@ -24,13 +23,16 @@ import com.ashelyakin.portfolio.ui.Footer
 import com.ashelyakin.portfolio.ui.NavHeader
 import com.ashelyakin.portfolio.ui.Screen
 import com.ashelyakin.portfolio.ui.projects.Project
+import com.ashelyakin.portfolio.ui.projects.ProjectDescriptionMarkdown
 import com.ashelyakin.portfolio.ui.projects.sampleProjects
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 /**
  * Страница отдельного проекта: header, ссылка "назад к списку",
- * крупное изображение, название и год, полное описание, теги/стек.
+ * крупное изображение, название и год, полное описание (markdown из assets), теги/стек.
  */
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun ProjectDetailScreen(
     project: Project,
@@ -82,11 +84,7 @@ fun ProjectDetailScreen(
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                Text(
-                    text = project.fullDescription,
-                    fontSize = 17.sp,
-                    color = PortfolioColors.TextPrimary,
-                )
+                ProjectDescriptionMarkdown(descriptionMdPath = project.descriptionMdPath)
 
                 Spacer(modifier = Modifier.height(40.dp))
 
