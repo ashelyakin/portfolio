@@ -13,6 +13,8 @@ import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 import androidx.compose.ui.tooling.preview.Preview
 import com.ashelyakin.portfolio.ui.Footer
 import com.ashelyakin.portfolio.ui.NavHeader
+import com.ashelyakin.portfolio.ui.Screen
+import com.ashelyakin.portfolio.ui.projects.Project
 
 /**
  * Главная страница (Home) портфолио — сборка всех секций по разделу 2 спецификации:
@@ -22,7 +24,7 @@ import com.ashelyakin.portfolio.ui.NavHeader
 fun HomeScreen(
     onProjectsClick: () -> Unit = {},
     onViewAllProjectsClick: () -> Unit = {},
-    onProjectClick: (ProjectCardData) -> Unit = {},
+    onProjectClick: (Project) -> Unit = {},
     onLetsTalkClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
@@ -33,7 +35,10 @@ fun HomeScreen(
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(64.dp)
     ) {
-        NavHeader(onProjectsClick = onProjectsClick, onLetsTalkClick = onLetsTalkClick)
+        NavHeader(
+            currentScreen = Screen.HOME,
+            onProjectsClick = onProjectsClick,
+            onLetsTalkClick = onLetsTalkClick)
 
         HeroSection(onLetsTalkClick = onLetsTalkClick)
 

@@ -34,11 +34,48 @@ data class TechItem(
 
 private val defaultTechs = listOf(
     TechItem("Kotlin"),
+    TechItem("Java"),
     TechItem("Android"),
+    TechItem("Kotlin Multiplatform"),
+
+    TechItem("Gradle (Kotlin DSL)"),
+
     TechItem("Jetpack Compose"),
-    TechItem("Firebase"),
+    TechItem("XML"),
+    TechItem("Material Design 3"),
+    TechItem("Compose Multiplatform"),
+    TechItem("Glide"),
+
+    TechItem("Koin"),
+
+    TechItem("Kotlin Coroutines"),
+    TechItem("Flow"),
+    TechItem("RxJava / RxKotlin"),
+
+    TechItem("OkHttp"),
     TechItem("Retrofit"),
-    TechItem("Room")
+    TechItem("Gson"),
+
+    TechItem("Firebase"),
+    TechItem("Google Play Services"),
+
+    TechItem("Room"),
+
+    TechItem("ExoPlayer"),
+    TechItem("CameraX"),
+
+    TechItem("JUnit"),
+    TechItem("Mockito"),
+    TechItem("Espresso"),
+    TechItem("Turbine"),
+
+    TechItem("GIT"),
+
+    TechItem("AI"),
+    TechItem("Claude Code"),
+    TechItem("Harness"),
+    TechItem("MCP"),
+    TechItem("Skills"),
 )
 
 /**

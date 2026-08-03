@@ -5,34 +5,19 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.ashelyakin.portfolio.ui.projects.Project
+import com.ashelyakin.portfolio.ui.projects.sampleProjects
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 import com.ashelyakin.portfolio.ui.theme.PortfolioTypography
-import androidx.compose.ui.tooling.preview.Preview
-
-private val defaultProjects = listOf(
-    ProjectCardData(
-        label = "FITTRACK",
-        title = "Fitness Tracking App",
-        technologies = listOf("Kotlin", "Room", "MVVM", "Google Fit")
-    ),
-    ProjectCardData(
-        label = "SHOPLY",
-        title = "E-commerce Marketplace",
-        technologies = listOf("Kotlin", "Compose", "Ktor", "Coroutines")
-    ),
-    ProjectCardData(
-        label = "NOTETIDY",
-        title = "Notes & Tasks Manager",
-        technologies = listOf("Kotlin", "SQLDelight", "WorkManager")
-    )
-)
 
 /**
  * Секция с кратким списком проектов на главной (п.2.4 "Блок 'Проекты'").
@@ -40,9 +25,9 @@ private val defaultProjects = listOf(
  */
 @Composable
 fun FeaturedProjectsSection(
-    projects: List<ProjectCardData> = defaultProjects,
+    projects: List<Project> = sampleProjects,
     onViewAllClick: () -> Unit = {},
-    onProjectClick: (ProjectCardData) -> Unit = {},
+    onProjectClick: (Project) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -85,16 +70,14 @@ fun FeaturedProjectsSection(
             OutlinePillButton(text = "View all projects", onClick = onViewAllClick)
         }
 
-        // Сетка карточек — 3 колонки в ряд (десктоп)
-        Row(
-            modifier = Modifier.fillMaxWidth(),
+        LazyRow(
             horizontalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-            projects.forEach { project ->
+            items(items = projects, key = { it }) { project ->
                 ProjectCard(
-                    data = project,
+                    project = project,
                     onClick = { onProjectClick(project) },
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.width(540.dp),
                 )
             }
         }

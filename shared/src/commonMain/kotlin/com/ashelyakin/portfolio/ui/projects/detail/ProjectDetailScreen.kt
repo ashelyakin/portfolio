@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ashelyakin.portfolio.ui.Footer
 import com.ashelyakin.portfolio.ui.NavHeader
+import com.ashelyakin.portfolio.ui.Screen
 import com.ashelyakin.portfolio.ui.projects.Project
 import com.ashelyakin.portfolio.ui.projects.sampleProjects
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
@@ -35,11 +36,19 @@ fun ProjectDetailScreen(
     project: Project,
     modifier: Modifier = Modifier,
     onBackClick: () -> Unit = {},
+    onHomeClick: () -> Unit = {},
+    onProjectsClick: () -> Unit = {},
+    onLogoClick: () -> Unit = {},
     onLetsTalkClick: () -> Unit = {},
 ) {
     Surface(color = PortfolioColors.Background, modifier = modifier.fillMaxSize()) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-            NavHeader(isProjectsActive = true, onLetsTalkClick = onLetsTalkClick)
+            NavHeader(
+                currentScreen = Screen.PROJECT_DETAILS,
+                onHomeClick = onHomeClick,
+                onLogoClick = onLogoClick,
+                onProjectsClick = onProjectsClick,
+                onLetsTalkClick = onLetsTalkClick)
 
             Column(modifier = Modifier.padding(horizontal = 48.dp, vertical = 32.dp)) {
                 Text(
@@ -69,11 +78,6 @@ fun ProjectDetailScreen(
                         fontSize = 48.sp,
                         color = PortfolioColors.TextPrimary,
                     )
-                    Text(
-                        text = project.year,
-                        fontSize = 16.sp,
-                        color = PortfolioColors.TextSecondary,
-                    )
                 }
 
                 Spacer(modifier = Modifier.height(24.dp))
@@ -83,21 +87,6 @@ fun ProjectDetailScreen(
                     fontSize = 17.sp,
                     color = PortfolioColors.TextPrimary,
                 )
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                SectionLabel(text = "Technologies")
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                Row {
-                    project.tags.forEachIndexed { index, tag ->
-                        TagChip(text = tag)
-                        if (index != project.tags.lastIndex) {
-                            Spacer(modifier = Modifier.width(8.dp))
-                        }
-                    }
-                }
 
                 Spacer(modifier = Modifier.height(40.dp))
 

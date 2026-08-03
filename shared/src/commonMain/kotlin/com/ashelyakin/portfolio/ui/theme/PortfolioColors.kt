@@ -30,4 +30,7 @@ object PortfolioColors {
 
     /** Заглушка для мест под изображения/фото (нейтральный серый) */
     val ImagePlaceholder = Color(0xFFD9D9D6)
+
+    /** Фон для обложек проектов Subaru */
+    val SubaruBackground = Color(0xFF000919)
 }

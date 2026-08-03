@@ -29,11 +29,10 @@ import com.ashelyakin.portfolio.ui.home.OutlinePillButton
  */
 @Composable
 fun NavHeader(
-    logoLetter: String = "AS",
-    isProjectsActive: Boolean = false,
+    currentScreen: Screen,
     onLogoClick: () -> Unit = {},
+    onHomeClick: () -> Unit = {},
     onProjectsClick: () -> Unit = {},
-    onThemeToggleClick: () -> Unit = {},
     onLetsTalkClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
@@ -45,21 +44,28 @@ fun NavHeader(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Логотип-монограмма
         Text(
-            text = logoLetter,
+            text = "AS",
             color = PortfolioColors.TextPrimary,
             fontSize = 22.sp,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.clickable(onClick = onLogoClick)
         )
 
-        // Пункт меню Projects
         Text(
-            text = "Projects",
-            color = if (isProjectsActive) PortfolioColors.TextPrimary else PortfolioColors.TextSecondary,
+            text = "Главная",
+            color = if (currentScreen == Screen.HOME) PortfolioColors.TextPrimary else PortfolioColors.TextSecondary,
             fontSize = 15.sp,
-            fontWeight = if (isProjectsActive) FontWeight.Bold else FontWeight.Medium,
+            fontWeight = if (currentScreen == Screen.HOME) FontWeight.Bold else FontWeight.Medium,
+            modifier = Modifier.clickable(onClick = onHomeClick)
+        )
+
+        val isProjectsScreen = currentScreen == Screen.PROJECTS_LIST || currentScreen == Screen.PROJECT_DETAILS
+        Text(
+            text = "Проекты",
+            color = if (isProjectsScreen) PortfolioColors.TextPrimary else PortfolioColors.TextSecondary,
+            fontSize = 15.sp,
+            fontWeight = if (isProjectsScreen) FontWeight.Bold else FontWeight.Medium,
             modifier = Modifier.clickable(onClick = onProjectsClick)
         )
 
@@ -67,18 +73,6 @@ fun NavHeader(
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Переключатель темы — простая круглая иконка
-            Box(
-                modifier = Modifier
-                    .size(36.dp)
-                    .clip(CircleShape)
-                    .background(PortfolioColors.Surface)
-                    .clickable(onClick = onThemeToggleClick),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(text = "◐", color = PortfolioColors.TextPrimary, fontSize = 16.sp)
-            }
-
             OutlinePillButton(
                 text = "Let's talk",
                 onClick = onLetsTalkClick,
@@ -91,5 +85,5 @@ fun NavHeader(
 @Preview
 @Composable
 private fun NavHeaderPreview() {
-    NavHeader(isProjectsActive = false)
+    NavHeader(currentScreen = Screen.HOME)
 }

@@ -77,7 +77,7 @@ private fun ProjectHeroImage(path: String) {
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(aspectRatio)
-            .clip(RoundedCornerShape(24.dp))
+            .clip(RoundedCornerShape(12.dp))
             .background(PortfolioColors.Divider),
     ) {
         if (loaded != null) {

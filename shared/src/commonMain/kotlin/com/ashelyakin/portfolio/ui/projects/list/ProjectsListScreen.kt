@@ -1,11 +1,14 @@
 package com.ashelyakin.portfolio.ui.projects.list
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,6 +22,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.ashelyakin.portfolio.ui.Footer
 import com.ashelyakin.portfolio.ui.NavHeader
+import com.ashelyakin.portfolio.ui.Screen
 import com.ashelyakin.portfolio.ui.projects.sampleProjects
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 
@@ -33,6 +37,8 @@ fun ProjectsListScreen(
     projects: List<com.ashelyakin.portfolio.ui.projects.Project> = sampleProjects,
     modifier: Modifier = Modifier,
     onProjectClick: (com.ashelyakin.portfolio.ui.projects.Project) -> Unit = {},
+    onHomeClick: () -> Unit = {},
+    onLogoClick: () -> Unit = {},
     onLetsTalkClick: () -> Unit = {},
 ) {
     var selectedCategory by remember { mutableStateOf("All") }
@@ -43,47 +49,46 @@ fun ProjectsListScreen(
         if (selectedCategory == "All") projects else projects.filter { it.category == selectedCategory }
     }
 
-    Surface(color = PortfolioColors.Background, modifier = modifier.fillMaxSize()) {
-        LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 340.dp),
-            contentPadding = PaddingValues(horizontal = 48.dp, vertical = 24.dp),
-            horizontalArrangement = Arrangement.spacedBy(32.dp),
-            verticalArrangement = Arrangement.spacedBy(48.dp),
-        ) {
-            item(span = { GridItemSpan(maxLineSpan) }) {
-                NavHeader(
-                    isProjectsActive = true,
-                    onLetsTalkClick = onLetsTalkClick,
-                    modifier = Modifier.horizontalBleed(48.dp),
+    Column() {
+        NavHeader(
+            currentScreen = Screen.PROJECTS_LIST,
+            onHomeClick = onHomeClick,
+            onLogoClick = onLogoClick,
+            onLetsTalkClick = onLetsTalkClick,
+        )
+
+        Surface(color = PortfolioColors.Background, modifier = modifier.fillMaxSize()) {
+            LazyVerticalGrid(
+                columns = GridCells.Adaptive(minSize = 340.dp),
+                contentPadding = PaddingValues(horizontal = 48.dp, vertical = 24.dp),
+                horizontalArrangement = Arrangement.spacedBy(32.dp),
+                verticalArrangement = Arrangement.spacedBy(48.dp),
+            ) {
+                item(span = { GridItemSpan(maxLineSpan) }) {
+                    PageTitleHeader(
+                        title = "Projects",
+                        description = "Все проекты — отражение моего подхода к разработке: " +
+                                "чистый код и продуманный UX",
+                        modifier = Modifier.horizontalBleed(48.dp),
+                    )
+                }
+
+                item(span = { GridItemSpan(maxLineSpan) }) {
+                    CategoryTabs(
+                        categories = categories,
+                        selected = selectedCategory,
+                        onSelect = { selectedCategory = it },
+                    )
+                }
+
+                projectsGrid(
+                    projects = filteredProjects,
+                    onProjectClick = onProjectClick,
                 )
-            }
-
-            item(span = { GridItemSpan(maxLineSpan) }) {
-                PageTitleHeader(
-                    title = "Projects",
-                    description = "Все проекты — отражение моего подхода к разработке: " +
-                            "чистый код и продуманный UX",
-                    modifier = Modifier.horizontalBleed(48.dp),
-                )
-            }
-
-            item(span = { GridItemSpan(maxLineSpan) }) {
-                CategoryTabs(
-                    categories = categories,
-                    selected = selectedCategory,
-                    onSelect = { selectedCategory = it },
-                )
-            }
-
-            projectsGrid(
-                projects = filteredProjects,
-                onProjectClick = onProjectClick,
-            )
-
-            item(span = { GridItemSpan(maxLineSpan) }) {
-                Footer(modifier = Modifier.horizontalBleed(48.dp))
             }
         }
+
+        Footer()
     }
 }
 

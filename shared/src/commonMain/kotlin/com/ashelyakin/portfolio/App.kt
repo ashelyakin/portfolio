@@ -28,12 +28,15 @@ fun App() {
             composable(ROUTE_HOME) {
                 HomeScreen(
                     onProjectsClick = { navController.navigate(ROUTE_PROJECTS) },
+                    onProjectClick = { navController.navigate("$ROUTE_PROJECTS/${it.id}") },
                     onViewAllProjectsClick = { navController.navigate(ROUTE_PROJECTS) },
                 )
             }
 
             composable(ROUTE_PROJECTS) {
                 ProjectsListScreen(
+                    onHomeClick = { navController.navigate(ROUTE_HOME) },
+                    onLogoClick = { navController.navigate(ROUTE_HOME) },
                     onProjectClick = { project ->
                         navController.navigate("$ROUTE_PROJECTS/${project.id}")
                     },
@@ -49,6 +52,9 @@ fun App() {
 
                 ProjectDetailScreen(
                     project = project,
+                    onHomeClick = { navController.navigate(ROUTE_HOME) },
+                    onProjectsClick = { navController.navigate(ROUTE_PROJECTS) },
+                    onLogoClick = { navController.navigate(ROUTE_HOME) },
                     onBackClick = { navController.popBackStack() },
                 )
             }
