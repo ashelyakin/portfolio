@@ -66,7 +66,7 @@ fun ProjectDetailScreen(
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                SectionLabel(text = project.category)
+                SectionLabel(text = project.category.strName)
 
                 Spacer(modifier = Modifier.height(8.dp))
 

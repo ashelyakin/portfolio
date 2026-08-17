@@ -68,6 +68,7 @@ private val defaultTechs = listOf(
     TechItem("Mockito"),
     TechItem("Espresso"),
     TechItem("Turbine"),
+    TechItem("Test It"),
 
     TechItem("GIT"),
 

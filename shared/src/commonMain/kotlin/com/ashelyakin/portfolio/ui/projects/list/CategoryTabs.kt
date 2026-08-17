@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ashelyakin.portfolio.ui.projects.ProjectCategory
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 
 /**
@@ -23,17 +25,17 @@ import com.ashelyakin.portfolio.ui.theme.PortfolioColors
  */
 @Composable
 fun CategoryTabs(
-    categories: List<String>,
-    selected: String,
+    categories: List<ProjectCategory>,
+    selected: ProjectCategory,
     modifier: Modifier = Modifier,
-    onSelect: (String) -> Unit = {},
+    onSelect: (ProjectCategory) -> Unit = {},
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
         Row {
             categories.forEachIndexed { index, category ->
                 val isSelected = category == selected
                 Text(
-                    text = category,
+                    text = category.strName,
                     color = if (isSelected) PortfolioColors.TextPrimary else PortfolioColors.TextSecondary,
                     fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
                     fontSize = 15.sp,
@@ -46,7 +48,7 @@ fun CategoryTabs(
                 }
             }
         }
-        Divider(color = PortfolioColors.Divider, thickness = 1.dp)
+        HorizontalDivider(color = PortfolioColors.Divider, thickness = 1.dp)
     }
 }
 
@@ -54,7 +56,7 @@ fun CategoryTabs(
 @Composable
 private fun CategoryTabsPreview() {
     CategoryTabs(
-        categories = listOf("All", "Mobile Apps", "Open Source", "Libraries"),
-        selected = "All",
+        categories = listOf(ProjectCategory.ALL, ProjectCategory.MOBILE_APPS, ProjectCategory.LIBRARIES, ProjectCategory.DESKTOP_APPS, ProjectCategory.MEETUPS),
+        selected = ProjectCategory.ALL,
     )
 }

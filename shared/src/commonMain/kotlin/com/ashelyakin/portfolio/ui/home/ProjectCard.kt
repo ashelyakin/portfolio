@@ -72,7 +72,7 @@ fun ProjectCard(
         ) {
             Column {
                 Text(
-                    text = project.category,
+                    text = project.category.strName,
                     style = PortfolioTypography.label,
                     color = PortfolioColors.TextSecondary
                 )

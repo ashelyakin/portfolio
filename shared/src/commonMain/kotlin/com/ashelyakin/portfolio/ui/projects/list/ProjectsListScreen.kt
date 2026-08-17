@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.ashelyakin.portfolio.ui.Footer
 import com.ashelyakin.portfolio.ui.NavHeader
 import com.ashelyakin.portfolio.ui.Screen
+import com.ashelyakin.portfolio.ui.projects.ProjectCategory
 import com.ashelyakin.portfolio.ui.projects.sampleProjects
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 
@@ -41,12 +42,12 @@ fun ProjectsListScreen(
     onLogoClick: () -> Unit = {},
     onLetsTalkClick: () -> Unit = {},
 ) {
-    var selectedCategory by remember { mutableStateOf("All") }
+    var selectedCategory by remember { mutableStateOf(ProjectCategory.ALL) }
     val categories = remember(projects) {
-        listOf("All") + projects.map { it.category }.distinct()
+        listOf(ProjectCategory.ALL) + projects.map { it.category }.distinct()
     }
     val filteredProjects = remember(projects, selectedCategory) {
-        if (selectedCategory == "All") projects else projects.filter { it.category == selectedCategory }
+        if (selectedCategory == ProjectCategory.ALL) projects else projects.filter { it.category == selectedCategory }
     }
 
     Column() {
