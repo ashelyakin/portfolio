@@ -11,8 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -136,14 +134,14 @@ fun HeroSection(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 Column {
-                    Text(text = badgeNumber, color = PortfolioColors.Surface, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+                    Text(text = badgeNumber, color = PortfolioColors.White, fontSize = 28.sp, fontWeight = FontWeight.Bold)
                     Text(
                         text = badgeLabel,
                         style = PortfolioTypography.label,
                         color = PortfolioColors.TextSecondary
                     )
                 }
-                Text(text = "↗", color = PortfolioColors.Surface, fontSize = 18.sp)
+                Text(text = "↗", color = PortfolioColors.White, fontSize = 18.sp)
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.ashelyakin.portfolio.ui.projects
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 
 /**
@@ -14,6 +15,7 @@ data class Project(
     val descriptionMdPath: String,
     val images: List<String>,
     val coverBackgroundColor: Color = PortfolioColors.ImagePlaceholder,
+    val coverContentScale: ContentScale = ContentScale.Crop,
     val cover: String?,
 )
 
@@ -39,10 +41,10 @@ val sampleProjects: List<Project> = listOf(
         id = "cubicMetrica",
         title = "Cubic Metrica",
         category = ProjectCategory.MOBILE_APPS,
-        shortDescription = "Android-приложение компьютерного зрения, которое в реальном времени определяет аудиторию перед цифровым рекламным экраном: пол, возраст, эмоции и фактическое количество людей.",
+        shortDescription = "Android-приложение компьютерного зрения, которое в реальном времени определяет аудиторию перед цифровым рекламным экраном: пол, возраст, эмоции и фактическое количество людей",
         descriptionMdPath = "files/cubic_metrica/description.md",
-        images = emptyList(),
-        cover = "",
+        images = generateFilePaths(1..1, prefix = "files/cubic_metrica/", suffix = ".jpg"),
+        cover = "files/cubic_metrica/cover.jpg",
     ),
     Project(
         id = "subaru",
@@ -51,7 +53,7 @@ val sampleProjects: List<Project> = listOf(
         shortDescription = "Приложение для владельцев автомобилей Subaru. Онлайн-магазин, личный кабинет, гарантийная книжка, сервисная история, программа лояльности и другое",
         descriptionMdPath = "files/subaru/description.md",
         images = generateFilePaths(1..5, prefix = "files/subaru/", suffix = ".png"),
-        cover = "files/subaru/logo.png",
+        cover = "files/subaru/cover.png",
         coverBackgroundColor = PortfolioColors.SubaruBackground,
     ),
     Project(
@@ -61,7 +63,7 @@ val sampleProjects: List<Project> = listOf(
         shortDescription = "Приложение для сотрудников дилерской сети Subaru для работы с актуальными сервисными заказ-нарядами и работы с клиентами сервисных центров",
         descriptionMdPath = "files/subaru_pro/description.md",
         images = generateFilePaths(1..3, prefix = "files/subaru_pro/", suffix = ".png"),
-        cover = "files/subaru_pro/logo.png",
+        cover = "files/subaru_pro/cover.png",
         coverBackgroundColor = PortfolioColors.SubaruBackground,
     ),
     Project(
@@ -70,8 +72,8 @@ val sampleProjects: List<Project> = listOf(
         category = ProjectCategory.MOBILE_APPS,
         shortDescription = "Android-приложение для прямого подключения к Cubic Metrica по локальной сети.",
         descriptionMdPath = "files/cubic_metrica_control/description.md",
-        images = emptyList(),
-        cover = "",
+        images = generateFilePaths(1..2, prefix = "files/cubic_metrica_control/", suffix = ".jpg"),
+        cover = "files/cubic_metrica_control/cover.jpg",
     ),
     Project(
         id = "testRunner",
@@ -79,28 +81,26 @@ val sampleProjects: List<Project> = listOf(
         category = ProjectCategory.DESKTOP_APPS,
         shortDescription = "Десктопное приложение, которое управляет полным циклом прогонов автотестов Android-плеера Cubic Vision",
         descriptionMdPath = "files/test_runner/description.md",
-        images = emptyList(),
-        cover = "",
+        images = generateFilePaths(1..4, prefix = "files/test_runner/", suffix = ".jpg"),
+        cover = "files/test_runner/cover.jpg",
     ),
     Project(
         id = "benefitty",
         title = "Benefitty",
         category = ProjectCategory.MOBILE_APPS,
-        shortDescription = "Android-приложение для получения кешбэков и выгод: хранит бонусные и банковские карты, даёт доступ к картам лояльности друзей и блогеров, начисляет кешбэк за чеки и покупки у партнёров.",
+        shortDescription = "Android-приложение для получения кешбэков и выгод: хранит бонусные и банковские карты, даёт доступ к картам лояльности друзей и блогеров, начисляет кешбэк за чеки и покупки у партнёров",
         descriptionMdPath = "files/benefitty/description.md",
-        images = listOf(),
-        cover = "",
-        coverBackgroundColor = PortfolioColors.SubaruBackground,
+        images = generateFilePaths(1..5, prefix = "files/benefitty/", suffix = ".jpg"),
+        cover = "files/benefitty/cover.jpg",
     ),
     Project(
         id = "benefittyСashier",
         title = "Benefitty для кассира",
         category = ProjectCategory.MOBILE_APPS,
-        shortDescription = "KMP приложение кассира, которое начисляет баллы программы лояльности за покупки и списывает их в счёт скидки.",
+        shortDescription = "KMP приложение кассира, которое начисляет баллы программы лояльности за покупки и списывает их в счёт скидки",
         descriptionMdPath = "files/benefitty_сashier/description.md",
         images = generateFilePaths(1..4, prefix = "files/benefitty_сashier/", suffix = ".png"),
-        cover = "files/benefitty_сashier/cover.png",
-        coverBackgroundColor = PortfolioColors.SubaruBackground,
+        cover = "files/benefitty_сashier/cover.jpg",
     ),
     Project(
         id = "roomBooking",
@@ -109,16 +109,16 @@ val sampleProjects: List<Project> = listOf(
         shortDescription = "Android-библиотека, поставляющая виджет бронирования переговорных комнат для Cubic Vision",
         descriptionMdPath = "files/room_booking/description.md",
         images = generateFilePaths(1..6, prefix = "files/room_booking/", suffix = ".png"),
-        cover = "",
+        cover = "files/room_booking/cover.png",
     ),
     Project(
         id = "libAdb",
         title = "Lib ADB",
         category = ProjectCategory.LIBRARIES,
-        shortDescription = "Android-библиотека, которая даёт приложению права на установку APK и перезагрузку устройства без root и без системной подписи.",
+        shortDescription = "Android-библиотека, которая даёт приложению права на установку APK и перезагрузку устройства без root и без системной подписи",
         descriptionMdPath = "files/lib_adb/description.md",
-        images = emptyList(),
-        cover = "",
+        images = generateFilePaths(1..5, prefix = "files/lib_adb/", suffix = ".JPG"),
+        cover = "files/lib_adb/cover.png",
     ),
     Project(
         id = "cubicAutoSetup",
@@ -127,7 +127,7 @@ val sampleProjects: List<Project> = listOf(
         shortDescription = "Android-сервис первоначальной настройки сети на root headless-устройствах, которые работают в торговых залах без монитора и клавиатуры",
         descriptionMdPath = "files/cubic_auto_setup/description.md",
         images = emptyList(),
-        cover = "",
+        cover = "files/cubic_auto_setup/cover.jpg",
     ),
     Project(
         id = "ledController",
@@ -135,14 +135,14 @@ val sampleProjects: List<Project> = listOf(
         category = ProjectCategory.MOBILE_APPS,
         shortDescription = "Android-приложение, которое управляет светодиодной подсветкой корпуса на устройствах",
         descriptionMdPath = "files/led_controller/description.md",
-        images = emptyList(),
-        cover = "",
+        images = generateFilePaths(1..2, prefix = "files/led_controller/", suffix = ".jpeg"),
+        cover = "files/led_controller/cover.jpeg",
     ),
     Project(
         id = "cubicMetricaMeetup",
         title = "Cubic Metrica Meetup",
         category = ProjectCategory.MEETUPS,
-        shortDescription = "Библиотека переиспользуемых Compose-компонентов",
+        shortDescription = "Выступление о развитии Cubic Metrica — Android-приложения определяющего характеристики аудитории перед экраном с помощью компьютерного зрения.",
         descriptionMdPath = "files/cubic_metrica_meetup/description.md",
         images = generateFilePaths(1..17, prefix = "files/cubic_metrica_meetup/", suffix = ".JPG"),
         cover = "files/cubic_metrica_meetup/cover.jpg",
@@ -151,7 +151,7 @@ val sampleProjects: List<Project> = listOf(
         id = "testRunnerMeetup",
         title = "Test Runner Meetup",
         category = ProjectCategory.MEETUPS,
-        shortDescription = "Библиотека переиспользуемых Compose-компонентов",
+        shortDescription = "Выступление о разработке Test Runner — desktop-инструмента для автоматизации тестирования Android-приложений",
         descriptionMdPath = "files/test_runner_meetup/description.md",
         images = generateFilePaths(1..17, prefix = "files/test_runner_meetup/", suffix = ".JPG"),
         cover = "files/test_runner_meetup/cover.jpg",

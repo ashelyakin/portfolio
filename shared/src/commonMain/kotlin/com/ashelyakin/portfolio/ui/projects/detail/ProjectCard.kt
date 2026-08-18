@@ -85,7 +85,7 @@ fun ProjectCard(
                     bitmap = loaded,
                     contentDescription = null,
                     modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Fit,
+                    contentScale = project.coverContentScale,
                 )
             }
         }

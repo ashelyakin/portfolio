@@ -11,7 +11,7 @@ object PortfolioColors {
     val Background = Color(0xFFF5F5F3)
 
     /** Фон карточек/белый (#FFFFFF) */
-    val Surface = Color(0xFFFFFFFF)
+    val White = Color(0xFFFFFFFF)
 
     /** Текст основной (#111111) */
     val TextPrimary = Color(0xFF111111)

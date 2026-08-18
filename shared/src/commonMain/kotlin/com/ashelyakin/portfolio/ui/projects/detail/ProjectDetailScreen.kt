@@ -62,7 +62,8 @@ fun ProjectDetailScreen(
 
                 Spacer(modifier = Modifier.height(24.dp))
 
-                ProjectHero(imagePaths = project.images, modifier = Modifier.fillMaxWidth())
+                if (project.images.isNotEmpty())
+                    ProjectHero(imagePaths = project.images, modifier = Modifier.fillMaxWidth())
 
                 Spacer(modifier = Modifier.height(32.dp))
 

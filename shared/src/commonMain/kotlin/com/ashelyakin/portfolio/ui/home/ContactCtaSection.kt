@@ -43,8 +43,8 @@ fun ContactCtaSection(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column {
-            Text(text = titleLine1, style = PortfolioTypography.h2, color = PortfolioColors.Surface)
-            Text(text = titleLine2, style = PortfolioTypography.h2, color = PortfolioColors.Surface)
+            Text(text = titleLine1, style = PortfolioTypography.h2, color = PortfolioColors.White)
+            Text(text = titleLine2, style = PortfolioTypography.h2, color = PortfolioColors.White)
             Text(
                 text = subtitle,
                 style = PortfolioTypography.body,
@@ -67,7 +67,7 @@ private fun PrimaryPillButtonLight(
     Row(
         modifier = modifier
             .clip(RoundedCornerShape(50))
-            .background(PortfolioColors.Surface)
+            .background(PortfolioColors.White)
             .clickable(onClick = onClick)
             .padding(horizontal = 28.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically

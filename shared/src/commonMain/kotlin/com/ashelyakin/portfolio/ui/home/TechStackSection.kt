@@ -102,7 +102,7 @@ fun TechChip(
                 .background(PortfolioColors.AccentDark),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = item.iconGlyph, color = PortfolioColors.Surface, fontSize = 11.sp, fontWeight = FontWeight.Bold)
+            Text(text = item.iconGlyph, color = PortfolioColors.White, fontSize = 11.sp, fontWeight = FontWeight.Bold)
         }
         Text(text = item.name, color = PortfolioColors.TextPrimary, fontSize = 14.sp, fontWeight = FontWeight.Medium)
     }

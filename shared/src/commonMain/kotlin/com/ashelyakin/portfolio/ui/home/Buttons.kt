@@ -44,9 +44,9 @@ fun PrimaryPillButton(
             .padding(horizontal = 28.dp, vertical = 14.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(text = text, color = PortfolioColors.Surface, fontSize = 15.sp, fontWeight = FontWeight.Medium)
+        Text(text = text, color = PortfolioColors.White, fontSize = 15.sp, fontWeight = FontWeight.Medium)
         if (showArrow) {
-            Text(text = "  →", color = PortfolioColors.Surface, fontSize = 15.sp, fontWeight = FontWeight.Medium)
+            Text(text = "  →", color = PortfolioColors.White, fontSize = 15.sp, fontWeight = FontWeight.Medium)
         }
     }
 }
@@ -112,7 +112,7 @@ fun UnderlineArrowLink(
 fun CircleArrowButton(
     direction: ArrowDirection = ArrowDirection.UpRight,
     backgroundColor: Color = PortfolioColors.AccentDark,
-    contentColor: Color = PortfolioColors.Surface,
+    contentColor: Color = PortfolioColors.White,
     onClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {

@@ -31,7 +31,7 @@ fun LazyGridScope.projectsGrid(
 @Composable
 private fun ProjectsGridPreview() {
     LazyVerticalGrid(
-        columns = GridCells.Adaptive(minSize = 340.dp),
+        columns = GridCells.Adaptive(minSize = 560.dp),
         contentPadding = PaddingValues(horizontal = 48.dp, vertical = 24.dp),
         horizontalArrangement = Arrangement.spacedBy(32.dp),
         verticalArrangement = Arrangement.spacedBy(48.dp),

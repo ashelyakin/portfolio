@@ -49,5 +49,5 @@ private fun CircleArrowButtonPreview() {
 @Preview(widthDp = 1920, heightDp = 1080)
 @Composable
 private fun CircleArrowButtonUpPreview() {
-    CircleArrowButton(icon = "↑", background = PortfolioColors.Surface, contentColor = PortfolioColors.TextPrimary)
+    CircleArrowButton(icon = "↑", background = PortfolioColors.White, contentColor = PortfolioColors.TextPrimary)
 }
