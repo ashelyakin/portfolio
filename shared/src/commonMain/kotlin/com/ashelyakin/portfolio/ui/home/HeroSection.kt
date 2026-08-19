@@ -39,10 +39,9 @@ import com.ashelyakin.portfolio.ui.ImageResourceCache
 fun HeroSection(
     titleLine1: String = "ANDROID",
     titleLine2: String = "DEVELOPER",
-    description: String = "Я создаю быстрые, отзывчивые и продуманные Android-приложения, " +
-        "уделяя особое внимание чистой архитектуре и удобству использования.",
+    description: String = "Я создаю Android-приложения, которыми удобно пользоваться —\nот первой идеи до готового продукта.",
     badgeNumber: String = "6+",
-    badgeLabel: String = "YEARS EXPERIENCE",
+    badgeLabel: String = "ЛЕТ ОПЫТА",
     onViewWorkClick: () -> Unit = {},
     onLetsTalkClick: () -> Unit = {},
     modifier: Modifier = Modifier
@@ -79,11 +78,12 @@ fun HeroSection(
             )
 
             Row(
+                modifier = Modifier.padding(top = 24.dp),
                 horizontalArrangement = Arrangement.spacedBy(24.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                PrimaryPillButton(text = "View my work", onClick = onViewWorkClick)
-                UnderlineArrowLink(text = "Let's talk", onClick = onLetsTalkClick)
+                PrimaryPillButton(text = "К моим работам", onClick = onViewWorkClick)
+                //UnderlineArrowLink(text = "Let's talk", onClick = onLetsTalkClick)
             }
         }
 
@@ -141,7 +141,6 @@ fun HeroSection(
                         color = PortfolioColors.TextSecondary
                     )
                 }
-                Text(text = "↗", color = PortfolioColors.White, fontSize = 18.sp)
             }
         }
     }

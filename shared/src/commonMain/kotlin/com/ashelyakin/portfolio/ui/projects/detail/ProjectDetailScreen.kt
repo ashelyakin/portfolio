@@ -9,11 +9,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,6 +28,8 @@ import com.ashelyakin.portfolio.ui.Screen
 import com.ashelyakin.portfolio.ui.projects.Project
 import com.ashelyakin.portfolio.ui.projects.ProjectDescriptionMarkdown
 import com.ashelyakin.portfolio.ui.projects.sampleProjects
+import com.ashelyakin.portfolio.ui.theme.IconArrowLeft
+import com.ashelyakin.portfolio.ui.theme.IconArrowRight
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 
@@ -53,12 +58,23 @@ fun ProjectDetailScreen(
                 onLetsTalkClick = onLetsTalkClick)
 
             Column(modifier = Modifier.padding(horizontal = 48.dp, vertical = 32.dp)) {
-                Text(
-                    text = "← All projects",
-                    color = PortfolioColors.TextSecondary,
-                    fontSize = 14.sp,
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
                     modifier = Modifier.clickable { onBackClick() },
-                )
+                ) {
+                    Icon(
+                        imageVector = IconArrowLeft,
+                        contentDescription = null,
+                        tint = PortfolioColors.TextSecondary,
+                        modifier = Modifier.size(width = 8.dp, height = 13.dp),
+                    )
+                    Text(
+                        text = "Все проекты",
+                        color = PortfolioColors.TextSecondary,
+                        fontSize = 14.sp,
+                    )
+                }
 
                 Spacer(modifier = Modifier.height(24.dp))
 
@@ -89,10 +105,10 @@ fun ProjectDetailScreen(
 
                 Spacer(modifier = Modifier.height(40.dp))
 
-                OutlinePillButton(text = "Back to all projects →", onClick = onBackClick)
+                OutlinePillButton(text = "Ко всем проектам", onClick = onBackClick)
             }
 
-            Footer()
+            //Footer()
         }
     }
 }

@@ -44,30 +44,35 @@ fun FeaturedProjectsSection(
         ) {
             Column {
                 Text(
-                    text = "FEATURED PROJECTS",
+                    text = "ПРОЕКТЫ",
                     style = PortfolioTypography.label,
                     color = PortfolioColors.TextSecondary
                 )
+                Text(
+                    text = "ПРЕВРАЩАЮ ИДЕИ",
+                    style = PortfolioTypography.h2,
+                    color = PortfolioColors.TextPrimary
+                )
                 Row {
                     Text(
-                        text = "APPS THAT ",
+                        text = "В ",
                         style = PortfolioTypography.h2,
                         color = PortfolioColors.TextPrimary
                     )
                     Text(
-                        text = "MAKE",
+                        text = "РЕАЛЬНЫЕ ",
                         style = PortfolioTypography.h2,
                         color = PortfolioColors.TextSecondary
                     )
+                    Text(
+                        text = "ПРОДУКТЫ",
+                        style = PortfolioTypography.h2,
+                        color = PortfolioColors.TextPrimary
+                    )
                 }
-                Text(
-                    text = "AN IMPACT",
-                    style = PortfolioTypography.h2,
-                    color = PortfolioColors.TextPrimary
-                )
             }
 
-            OutlinePillButton(text = "View all projects", onClick = onViewAllClick)
+            OutlinePillButton(text = "Все проекты", onClick = onViewAllClick)
         }
 
         LazyRow(

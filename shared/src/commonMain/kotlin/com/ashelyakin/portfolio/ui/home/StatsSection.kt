@@ -30,9 +30,9 @@ data class StatItem(
 )
 
 private val defaultStats = listOf(
-    StatItem("6+", "YEARS EXPERIENCE"),
-    StatItem("20+", "COMMERCIAL PROJECTS"),
-    StatItem("4+", "PUBLICATIONS ON GOOGLE PLAY")
+    StatItem("6+", "ЛЕТ ОПЫТА"),
+    StatItem("20+", "КОММЕРЧЕСКИХ ПРОЕКТОВ"),
+    StatItem("4+", "ПУБЛИКАЦИЙ В GOOGLE PLAY")
 )
 
 /**

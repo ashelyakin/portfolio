@@ -23,13 +23,12 @@ import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 @Composable
 fun PageTitleHeader(
     title: String,
-    description: String,
     modifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 48.dp, vertical = 48.dp),
+            .padding(vertical = 48.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Bottom,
     ) {
@@ -40,13 +39,6 @@ fun PageTitleHeader(
             color = PortfolioColors.TextPrimary,
         )
 
-        Text(
-            text = description,
-            fontSize = 16.sp,
-            color = PortfolioColors.TextSecondary,
-            textAlign = TextAlign.End,
-            modifier = Modifier.widthIn(max = 360.dp),
-        )
     }
 }
 
@@ -55,6 +47,5 @@ fun PageTitleHeader(
 private fun PageTitleHeaderPreview() {
     PageTitleHeader(
         title = "Projects",
-        description = "Все проекты — отражение моего подхода к разработке: чистый код и продуманный UX",
     )
 }

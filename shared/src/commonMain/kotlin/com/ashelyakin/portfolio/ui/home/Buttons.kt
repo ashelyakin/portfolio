@@ -5,10 +5,13 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ashelyakin.portfolio.ui.theme.PortfolioColors
 import androidx.compose.ui.tooling.preview.Preview
+import com.ashelyakin.portfolio.ui.theme.IconArrowRight
 
 /** Направление стрелки для [CircleArrowButton]. */
 enum class ArrowDirection { UpRight, Up }
@@ -33,7 +37,6 @@ enum class ArrowDirection { UpRight, Up }
 fun PrimaryPillButton(
     text: String,
     onClick: () -> Unit = {},
-    showArrow: Boolean = true,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -45,9 +48,13 @@ fun PrimaryPillButton(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(text = text, color = PortfolioColors.White, fontSize = 15.sp, fontWeight = FontWeight.Medium)
-        if (showArrow) {
-            Text(text = "  →", color = PortfolioColors.White, fontSize = 15.sp, fontWeight = FontWeight.Medium)
-        }
+        Spacer(modifier = Modifier.width(8.dp))
+        Icon(
+            imageVector = IconArrowRight,
+            contentDescription = null,
+            tint = PortfolioColors.White,
+            modifier = Modifier.size(width = 8.dp, height = 13.dp),
+        )
     }
 }
 
@@ -59,7 +66,6 @@ fun PrimaryPillButton(
 fun OutlinePillButton(
     text: String,
     onClick: () -> Unit = {},
-    showArrow: Boolean = true,
     textColor: Color = PortfolioColors.TextPrimary,
     borderColor: Color = PortfolioColors.TextPrimary,
     modifier: Modifier = Modifier
@@ -73,9 +79,13 @@ fun OutlinePillButton(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(text = text, color = textColor, fontSize = 14.sp, fontWeight = FontWeight.Medium)
-        if (showArrow) {
-            Text(text = "  →", color = textColor, fontSize = 14.sp, fontWeight = FontWeight.Medium)
-        }
+        Spacer(modifier = Modifier.width(8.dp))
+        Icon(
+            imageVector = IconArrowRight,
+            contentDescription = null,
+            tint = textColor,
+            modifier = Modifier.size(width = 8.dp, height = 13.dp),
+        )
     }
 }
 

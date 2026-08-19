@@ -67,10 +67,7 @@ fun ProjectsListScreen(
             ) {
                 item(span = { GridItemSpan(maxLineSpan) }) {
                     PageTitleHeader(
-                        title = "Projects",
-                        description = "Все проекты — отражение моего подхода к разработке: " +
-                                "чистый код и продуманный UX",
-                        modifier = Modifier.horizontalBleed(48.dp),
+                        title = "Проекты",
                     )
                 }
 
@@ -89,7 +86,7 @@ fun ProjectsListScreen(
             }
         }
 
-        Footer()
+        //Footer()
     }
 }
 

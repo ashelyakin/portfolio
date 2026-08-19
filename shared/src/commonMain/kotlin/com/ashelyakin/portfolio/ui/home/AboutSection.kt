@@ -20,9 +20,9 @@ import androidx.compose.ui.unit.dp
  */
 @Composable
 fun AboutSection(
-    description: String = "Последние несколько лет я специализируюсь на разработке нативных " +
-        "Android-приложений — от идеи и прототипа до релиза в Google Play. " +
-        "Мне важны чистая архитектура, производительность и внимание к деталям интерфейса.",
+    description: String = "Я работаю над Android-приложениями на всех этапах их развития — от первых идей до готового продукта, которым пользуются люди. За это время мне приходилось решать самые разные задачи, поэтому я привык смотреть на приложение не как на набор отдельных экранов, а как на единый продукт.\n" +
+            "\n" +
+            "Для меня важно понимать, ради чего создаётся приложение, и находить решения, которые помогают довести идею до работающего результата.",
     onMoreAboutMeClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
@@ -35,32 +35,27 @@ fun AboutSection(
         // Левая колонка — лейбл + заголовок
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = "ABOUT ME",
+                text = "ОБО МНЕ",
                 style = PortfolioTypography.label,
                 color = PortfolioColors.TextSecondary
             )
             Text(
-                text = "I TURN IDEAS INTO",
+                text = "ЗА КАЖДЫМ ХОРОШИМ ПРИЛОЖЕНИЕМ — ",
                 style = PortfolioTypography.h2,
                 color = PortfolioColors.TextPrimary
             )
             Row {
                 Text(
-                    text = "SMOOTH ",
-                    style = PortfolioTypography.h2,
-                    color = PortfolioColors.TextPrimary
-                )
-                Text(
-                    text = "ANDROID",
+                    text = "ПРОДУМАННАЯ ",
                     style = PortfolioTypography.h2,
                     color = PortfolioColors.TextSecondary
                 )
+                Text(
+                    text = "РАБОТА",
+                    style = PortfolioTypography.h2,
+                    color = PortfolioColors.TextPrimary
+                )
             }
-            Text(
-                text = "EXPERIENCES",
-                style = PortfolioTypography.h2,
-                color = PortfolioColors.TextPrimary
-            )
         }
 
         // Правая колонка — описание + CTA
@@ -73,12 +68,11 @@ fun AboutSection(
                 style = PortfolioTypography.body,
                 color = PortfolioColors.TextSecondary
             )
-            OutlinePillButton(text = "More about me", onClick = onMoreAboutMeClick)
         }
     }
 }
 
-@Preview
+@Preview(widthDp = 1920, heightDp = 1080)
 @Composable
 private fun AboutSectionPreview() {
     AboutSection()

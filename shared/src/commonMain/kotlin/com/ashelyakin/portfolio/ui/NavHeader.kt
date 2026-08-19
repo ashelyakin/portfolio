@@ -36,47 +36,42 @@ fun NavHeader(
     onLetsTalkClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    Row(
+    Box(
         modifier = modifier
             .fillMaxWidth()
             .background(PortfolioColors.Background)
-            .padding(horizontal = 48.dp, vertical = 24.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+            .padding(horizontal = 48.dp, vertical = 12.dp)
     ) {
         Text(
             text = "AS",
             color = PortfolioColors.TextPrimary,
             fontSize = 22.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.clickable(onClick = onLogoClick)
-        )
-
-        Text(
-            text = "Главная",
-            color = if (currentScreen == Screen.HOME) PortfolioColors.TextPrimary else PortfolioColors.TextSecondary,
-            fontSize = 15.sp,
-            fontWeight = if (currentScreen == Screen.HOME) FontWeight.Bold else FontWeight.Medium,
-            modifier = Modifier.clickable(onClick = onHomeClick)
-        )
-
-        val isProjectsScreen = currentScreen == Screen.PROJECTS_LIST || currentScreen == Screen.PROJECT_DETAILS
-        Text(
-            text = "Проекты",
-            color = if (isProjectsScreen) PortfolioColors.TextPrimary else PortfolioColors.TextSecondary,
-            fontSize = 15.sp,
-            fontWeight = if (isProjectsScreen) FontWeight.Bold else FontWeight.Medium,
-            modifier = Modifier.clickable(onClick = onProjectsClick)
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .clickable(onClick = onLogoClick)
         )
 
         Row(
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            modifier = Modifier.align(Alignment.Center),
+            horizontalArrangement = Arrangement.spacedBy(60.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            OutlinePillButton(
-                text = "Let's talk",
-                onClick = onLetsTalkClick,
-                showArrow = false
+            Text(
+                text = "Главная",
+                color = if (currentScreen == Screen.HOME) PortfolioColors.TextPrimary else PortfolioColors.TextSecondary,
+                fontSize = 15.sp,
+                fontWeight = if (currentScreen == Screen.HOME) FontWeight.Bold else FontWeight.Medium,
+                modifier = Modifier.clickable(onClick = onHomeClick).padding(vertical = 12.dp, horizontal = 12.dp)
+            )
+
+            val isProjectsScreen = currentScreen == Screen.PROJECTS_LIST || currentScreen == Screen.PROJECT_DETAILS
+            Text(
+                text = "Проекты",
+                color = if (isProjectsScreen) PortfolioColors.TextPrimary else PortfolioColors.TextSecondary,
+                fontSize = 15.sp,
+                fontWeight = if (isProjectsScreen) FontWeight.Bold else FontWeight.Medium,
+                modifier = Modifier.clickable(onClick = onProjectsClick).padding(vertical = 12.dp, horizontal = 12.dp)
             )
         }
     }

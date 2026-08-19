@@ -20,11 +20,11 @@ data class Project(
 )
 
 enum class ProjectCategory(val strName: String){
-    ALL("All"),
-    MOBILE_APPS("Mobile Apps"),
-    DESKTOP_APPS("Desktop apps"),
-    LIBRARIES("Libraries"),
-    MEETUPS("Meetups")
+    ALL("Все"),
+    MOBILE_APPS("Мобильные приложения"),
+    DESKTOP_APPS("Desktop приложения"),
+    LIBRARIES("Библиотеки"),
+    MEETUPS("Митапы")
 }
 
 val sampleProjects: List<Project> = listOf(
